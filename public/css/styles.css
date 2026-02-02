@@ -1,0 +1,1054 @@
+/* VARIABLES (Tonos Cálidos y Profesionales) */
+:root {
+    --primary: #ea580c;
+    /* Naranja Fuerte */
+    --primary-hover: #c2410c;
+    --dark: #1c1917;
+    /* Negro Cálido */
+    --light: #fafaf9;
+    /* Fondo Hueso */
+    --white: #ffffff;
+    --gray: #78716c;
+    --border: #e7e5e4;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 1. NAV (Limpio) */
+.navbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.btn-reg {
+    background: var(--dark);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.btn-reg:hover {
+    background: var(--primary);
+}
+
+/* 2. HERO (Sin imagen de fondo molesta) */
+.hero {
+    background: var(--white);
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    color: var(--gray);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    overflow: hidden;
+    background: var(--white);
+    transition: 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.1);
+}
+
+.search-input {
+    flex: 1;
+    padding: 15px 25px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.search-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-btn:hover {
+    background: var(--primary-hover);
+}
+
+/* Categorías */
+.pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pill {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gray);
+    text-transform: uppercase;
+    background: var(--white);
+    transition: 0.2s;
+}
+
+.pill:hover,
+.pill.active {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: #fff7ed;
+}
+
+/* 3. GRID (AQUÍ ESTÁ LA CLAVE) */
+.main-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.grid-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.trip-grid {
+    display: grid;
+    gap: 30px;
+    /* Por defecto (Móvil) 1 columna */
+    grid-template-columns: 1fr;
+}
+
+/* TABLET: 2 Columnas */
+@media (min-width: 768px) {
+    .trip-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* DESKTOP: 3 Columnas (LO QUE PEDÍAS) */
+@media (min-width: 1024px) {
+    .trip-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* TARJETA CONSISTENTE */
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    /* Ocupa toda la altura de la fila */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: #d6d3d1;
+}
+
+/* FOTO FIJA E INDESTRUCTIBLE */
+.card-img-box {
+    height: 220px;
+    /* ALTURA FIJA: Si cambias esto, cambian todas */
+    width: 100%;
+    position: relative;
+    background: #e5e5e5;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* MAGIA: Recorta la foto para llenar el hueco sin deformar */
+}
+
+.price-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* Empuja el botón abajo */
+}
+
+.card-cat {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+    /* Cortar texto a 3 líneas máx */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-footer {
+    margin-top: auto;
+    /* Alineación perfecta abajo */
+    padding-top: 15px;
+    border-top: 1px solid #f5f5f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-btn {
+    background: var(--light);
+    color: var(--dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.card:hover .card-btn {
+    background: var(--primary);
+    color: white;
+}
+
+/* FOOTER */
+footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 40px;
+    margin-top: auto;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   PÁGINA DE DETALLE DEL VIAJE (Show)
+   ========================================= */
+
+/* 1. HERO BANNER (Imagen gigante arriba) */
+.trip-hero {
+    width: 100%;
+    height: 60vh;
+    /* Ocupa el 60% de la altura de la pantalla */
+    min-height: 400px;
+    position: relative;
+    background-color: #e5e5e5;
+}
+
+.trip-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Recorta la imagen para que llene todo sin deformar */
+    filter: brightness(0.85);
+    /* Un poco oscura para que el texto blanco se lea */
+}
+
+.trip-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    /* Degradado para leer texto */
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+}
+
+.trip-hero-inner {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.trip-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.trip-location {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 2. LAYOUT PRINCIPAL (Grid con barra lateral) */
+.trip-layout {
+    display: grid;
+    /* Columna contenido (flexible) | Columna lateral (350px fija) */
+    grid-template-columns: 1fr 350px;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* En móvil, una sola columna */
+@media (max-width: 900px) {
+    .trip-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 3. COLUMNA IZQUIERDA (Info y Reseñas) */
+.trip-desc {
+    font-size: 1.1rem;
+    color: var(--dark);
+    line-height: 1.8;
+    margin-bottom: 50px;
+    white-space: pre-line;
+    /* Respeta saltos de línea */
+}
+
+.reviews-section {
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+}
+
+.review-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #f5f5f4;
+    padding-bottom: 20px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e5e5e5;
+    flex-shrink: 0;
+}
+
+.avatar-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--dark);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.review-content {
+    flex: 1;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.review-author {
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+.review-stars {
+    color: #facc15;
+    /* Amarillo */
+    letter-spacing: 2px;
+}
+
+.review-text {
+    font-style: italic;
+    color: var(--gray);
+}
+
+/* Formulario Reseña */
+.review-form-box {
+    background: #f9fafb;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+/* 4. BARRA LATERAL (Sticky Booking) */
+.booking-card {
+    position: sticky;
+    top: 100px;
+    /* Se queda pegado al bajar */
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.price-display {
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.price-amount {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.price-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.dates-grid {
+    display: flex;
+    background: #f5f5f4;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.date-box {
+    flex: 1;
+    text-align: center;
+}
+
+.date-box:first-child {
+    border-right: 1px solid #d6d3d1;
+}
+
+.date-title {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--gray);
+}
+
+.date-val {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.book-btn {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.book-btn:hover {
+    background: var(--primary-hover);
+}
+
+.booked-alert {
+    background: #dcfce7;
+    color: #166534;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #bbf7d0;
+}
+
+/* =========================================
+   AUTENTICACIÓN (LOGIN / REGISTER)
+   ========================================= */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    /* Centrado vertical */
+}
+
+.auth-card {
+    background: var(--white);
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-hover);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.auth-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.auth-header p {
+    color: var(--gray);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--dark);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+}
+
+.btn-primary {
+    width: 100%;
+    background: var(--dark);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--primary);
+}
+
+.auth-footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.auth-link {
+    color: var(--primary);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   DASHBOARD (MIS RESERVAS)
+   ========================================= */
+.dash-header {
+    background: var(--white);
+    padding: 40px 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+}
+
+.dash-title {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 2rem;
+}
+
+.booking-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Tarjeta de Reserva Horizontal */
+.booking-card {
+    display: flex;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.booking-card:hover {
+    box-shadow: var(--shadow);
+    border-color: #d6d3d1;
+}
+
+.booking-img {
+    width: 140px;
+    object-fit: cover;
+}
+
+.booking-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.booking-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.booking-date {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+.badge-success {
+    display: inline-block;
+    background: #dcfce7;
+    color: #166534;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.booking-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn-cancel {
+    color: #ef4444;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-cancel:hover {
+    color: #b91c1c;
+}
+
+/* =========================================
+   PANEL DE ADMINISTRACIÓN (ADMIN)
+   ========================================= */
+
+/* Estructura Principal */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    /* Fondo gris muy suave */
+}
+
+/* Barra Lateral (Sidebar) */
+.sidebar {
+    width: 260px;
+    background-color: var(--dark);
+    color: white;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 40px;
+    display: block;
+    letter-spacing: -1px;
+}
+
+.menu-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #a8a29e;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.nav-item {
+    display: block;
+    padding: 12px 15px;
+    color: #d6d3d1;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Contenido Principal Admin */
+.admin-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+/* Tarjetas de Estadísticas (Widgets) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.stat-icon {
+    float: right;
+    font-size: 1.5rem;
+    opacity: 0.2;
+}
+
+/* Tablas de Datos Elegantes */
+.table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    /* Para redondear esquinas */
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background: #f9fafb;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--gray);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+}
+
+.admin-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    color: var(--dark);
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tr:hover {
+    background-color: #fcfcfc;
+}
+
+/* Botones de Acción en Tabla */
+.action-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.btn-edit {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.btn-edit:hover {
+    background: #bae6fd;
+}
+
+.btn-delete {
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background: #fecaca;
+}
+
+.btn-create {
+    background: var(--dark);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.btn-create:hover {
+    background: var(--primary);
+}
+
+/* --- LAYOUT GENERAL (Para que el sidebar se quede a la izquierda) --- */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.admin-content {
+    flex: 1;
+    /* El contenido ocupa el resto del espacio */
+    background-color: #f3f4f6;
+    /* Fondo gris claro para el contenido */
+}
+
+/* --- ESTILOS DEL SIDEBAR --- */
+.sidebar {
+    width: 260px;
+    /* Color oscuro original */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* Altura completa */
+    flex-shrink: 0;
+    /* Evita que se encoja */
+    position: sticky;
+    /* (Opcional) Lo mantiene fijo al hacer scroll */
+    top: 0;
+}
+
+.sidebar-brand {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ea580c;
+    /* Naranja Corporativo */
+    text-decoration: none;
+    margin-bottom: 30px;
+    display: block;
+    text-align: center;
+}
+
+.menu-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #9ca3af;
+    /* Gris suave */
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    letter-spacing: 0.05em;
+    margin-top: 20px;
+    /* Separación entre secciones */
+}
+
+/* --- ELEMENTOS DEL MENÚ (La alineación perfecta) --- */
+.nav-item {
+    display: flex !important;
+    /* Pone icono y texto en fila */
+    align-items: center !important;
+    /* CENTRADO VERTICAL EXACTO */
+    gap: 12px !important;
+    /* Espacio entre icono y texto */
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #d1d5db;
+    /* Texto gris claro */
+    border-radius: 8px;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
