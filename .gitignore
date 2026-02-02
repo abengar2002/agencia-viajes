@@ -22,5 +22,5 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
-er->is_admin = true;
-is_admin
+/er->is_admin = true;
+/is_admin
