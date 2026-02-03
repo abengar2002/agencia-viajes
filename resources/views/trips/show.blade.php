@@ -104,6 +104,8 @@
         .animate-fly {
             animation: fly 1s infinite alternate ease-in-out;
         }
+
+        .btn-nav { font-size: 1rem; }
     </style>
 </head>
 <body>

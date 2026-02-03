@@ -180,7 +180,7 @@
                     <div class="user-nav-group">
                         <a href="{{ route('home') }}" style="text-decoration:none; color:var(--gray); font-weight:bold; font-size:1rem;">Catálogo</a>
                         <a href="{{ route('dashboard') }}" style="text-decoration:none; color:var(--gray); font-weight:bold; font-size:1rem;">Mis Viajes</a>
-                        
+                        <a href="{{ route('favorites.index') }}" style="text-decoration:none; color:var(--gray); font-weight:bold; font-size:1rem;">Favoritos</a>
                         <a href="{{ route('profile.edit') }}" class="user-profile-link" title="Mi Perfil">
                             <span>{{ Auth::user()->name }}</span>
                             @if(Auth::user()->avatar)

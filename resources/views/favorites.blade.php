@@ -30,7 +30,7 @@
             gap: 15px;
         }
 
-        /* GRID Y CARDS (Igual que en welcome) */
+        /* GRID Y CARDS */
         .trip-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -132,7 +132,7 @@
                     <a href="{{ route('trips.show', $trip) }}" style="position:absolute; inset:0; z-index:1;"></a>
 
                     <div class="card-img-box">
-                        <img src="{{ Str::startsWith($trip->image, 'http') ? $trip->image : asset('storage/' . $trip->image) }}" alt="{{ $trip->title }}" class="card-img">
+                        <img src="{{ Str::startsWith($trip->image, 'http') ? $trip->image : asset($trip->image) }}" alt="{{ $trip->title }}" class="card-img">
                         <div class="price-badge">${{ number_format($trip->price, 0) }}</div>
 
                         <form action="{{ route('trips.favorite', $trip) }}" method="POST" class="fav-form">

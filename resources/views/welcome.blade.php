@@ -14,6 +14,7 @@
         .nav-avatar-placeholder { width: 35px; height: 35px; background: #3b82f6; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
         .logout-btn { background: none; border: 2px solid var(--primary); color: var(--primary); padding: 6px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; }
         .logout-btn:hover { background: var(--primary); color: white; }
+        .btn-nav { font-size: 1rem; }
 
         /* --- ESTILOS DE PAGINACIÓN --- */
         .custom-pagination { margin-top: 50px; display: flex; justify-content: center; width: 100%; }

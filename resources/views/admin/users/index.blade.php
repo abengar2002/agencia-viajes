@@ -18,14 +18,44 @@
 <div class="admin-wrapper">
     <aside class="sidebar">
         <a href="{{ route('home') }}" class="sidebar-brand">Carmelo's Agency Admin</a>
+        
         <div class="menu-label">Principal</div>
-        <a href="{{ route('admin.dashboard') }}" class="nav-item">Dashboard</a>
+        
+        <a href="{{ route('admin.dashboard') }}" class="nav-item">
+            <svg style="width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+            Dashboard
+        </a>
+        
         <div class="menu-label" style="margin-top:20px;">Gestión</div>
-        <a href="{{ route('admin.trips.index') }}" class="nav-item">Viajes</a>
-        <a href="{{ route('admin.bookings.index') }}" class="nav-item">Reservas</a>
-        <a href="{{ route('admin.reviews.index') }}" class="nav-item">Reseñas</a>
-        <a href="{{ route('admin.users.index') }}" class="nav-item active">Usuarios</a>
-        </aside>
+        
+        <a href="{{ route('admin.trips.index') }}" class="nav-item">
+            <svg style="width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+            Viajes
+        </a>
+        
+        <a href="{{ route('admin.bookings.index') }}" class="nav-item">
+            <svg style="width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path></svg>
+            Reservas
+        </a>
+        
+        <a href="{{ route('admin.reviews.index') }}" class="nav-item">
+            <svg style="width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+            Reseñas
+        </a>
+        
+        <a href="{{ route('admin.users.index') }}" class="nav-item active">
+            <svg style="width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            Usuarios
+        </a>
+
+        <div style="margin-top:auto; padding-top:20px; border-top:1px solid #444;">
+            <strong style="color:#d6d3d1;">{{ Auth::user()->name }}</strong>
+            <form method="POST" action="{{ route('logout') }}" style="margin-top:5px;">
+                @csrf
+                <button type="submit" style="background:none; border:none; color:#ef4444; cursor:pointer; font-weight:bold; font-size:0.8rem;">Salir</button>
+            </form>
+        </div>
+    </aside>
 
     <main class="admin-content">
         <h1 class="page-title" style="margin-bottom:30px;">Usuarios Registrados</h1>
